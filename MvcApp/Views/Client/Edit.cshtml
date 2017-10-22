@@ -1,0 +1,46 @@
+﻿@model MvcApp.Models.Client
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.ValidationSummary(true)
+
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="form-group">
+            @Html.LabelFor(x => x.Surname)
+            @Html.TextBoxFor(model => model.Surname, new {@class="form-control" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FirstName)
+            @Html.TextBoxFor(model => model.FirstName, new {@class="form-control" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.IDType)            
+            @Html.TextBoxFor(model => model.IDType, new {@class="form-control" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.IdNumber)
+            @Html.TextBoxFor(model => model.IdNumber, new {@class="form-control" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DateOfBirth)
+            @Html.TextBoxFor(model => model.DateOfBirth, new {@class="form-control" })
+        </div>
+    
+     <input type="submit" value ="Update Client" class="btn btn-primary" />
+    <a href="@Url.Action("index")">or cancel</a>
+}
+
+     
+
+

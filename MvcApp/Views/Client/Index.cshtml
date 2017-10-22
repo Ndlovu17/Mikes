@@ -1,0 +1,66 @@
+﻿@model IEnumerable<MvcApp.Models.Client>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<table  class="table table-striped">
+ <thead>
+    <tr>
+        <th>
+            Surname
+        </th>
+        <th>
+           FirstName
+        </th>
+        <th>
+            IDType
+        </th>
+        <th>
+            IdNumnber
+        </th>
+        <th>
+            DateOfBirth
+        </th>
+        <th></th>
+    </tr>
+   </thead>
+    <tbody>
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @item.Surname
+        </td>
+        <td>
+            @item.FirstName
+        </td>
+        <td>
+            @item.IDType
+        </td>
+        <td>
+            @item.IdNumber
+        </td>
+        <td>
+            @item.DateOfBirth
+        </td>
+        <td>
+            <div class="btn-group">
+                <a href="@Url.Action("Edit", new {item.Id})" class="btn btn-xs btn-primary">
+                    <i class="glyphicon glyphicon-edit"></i>
+                    Edit
+                </a>
+            </div>
+            <div class="btn-group">
+                <a href="@Url.Action("GetClient", new {item.Id})" class="btn btn-xs btn-primary">
+                    <i class="glyphicon glyphicon-info"></i>
+                    Details
+                </a>
+            </div>
+        </td>
+       
+    </tr>
+}
+</tbody>
+</table>
